@@ -18,6 +18,7 @@ namespace Quản_lý_kho_hàng.DAL
         
         public List<Account> SelectAll()
         {
+            
             Table<Account> tbAccount = ConfigureManager.Database.GetTable<Account>();
 
             var query = from acc in tbAccount select acc;
