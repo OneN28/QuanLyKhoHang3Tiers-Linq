@@ -9,6 +9,8 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using Quản_lý_kho_hàng.EL;
 
+using System.Data.Linq;
+
 namespace Quản_lý_kho_hàng.DAL
 {
     class AccountDAO
@@ -16,21 +18,25 @@ namespace Quản_lý_kho_hàng.DAL
         
         public List<Account> SelectAll()
         {
-            List<Account> accounts = new List<Account>();
-            SqlCommand command = new SqlCommand("SELECT * FROM Account", ConfigureManager.SqlConnection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                accounts.Add(new Account(reader.GetString(0), reader.GetString(1)));
-            }
-            reader.Close();
-            return accounts;
+            Table<Account> tbAccount = ConfigureManager.Database.GetTable<Account>();
+
+            var query = from acc in tbAccount select acc;
+
+            return query.ToList<Account>();
         }
 
         public bool Insert(Account account)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Account VALUES(\'" + account.Username + "\',\'" + account.Password + "\')", ConfigureManager.SqlConnection);
-            return command.ExecuteNonQuery() == 0 ? false : true;
+            ConfigureManager.Database.GetTable<Account>().InsertOnSubmit(account);
+            try
+            {
+                ConfigureManager.Database.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
