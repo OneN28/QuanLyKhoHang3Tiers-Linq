@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Linq.Mapping;
+
 
 namespace Quản_lý_kho_hàng.EL
 {
+    [Table(Name ="Hanghoa")]
     class HangHoa
     {
         public HangHoa(string maHang, string tenHang, string noiChua, double giaHang, int soLuongHang)
@@ -16,11 +19,15 @@ namespace Quản_lý_kho_hàng.EL
             GiaHang = giaHang;
             SoLuongHang = soLuongHang;
         }
-
+        [Column(Name ="MaHang",IsPrimaryKey =true)]
         public string MaHang { get; set; }
+        [Column(Name ="TenHang")]
         public string TenHang { get; set; }
+        [Column(Name ="NoiChua")]
         public string NoiChua { get; set; }
+        [Column(Name ="GiaHang")]
         public double GiaHang { get; set; }
+        [Column(Name ="SoLuongHang")]
         public int SoLuongHang { get; set; }
     }
 }

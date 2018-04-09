@@ -23,7 +23,7 @@ namespace Quản_lý_kho_hàng
        
         private void Form1_Load(object sender, EventArgs e)
         {
-            ConfigureManager.SqlConnection.Open();
+            //ConfigureManager.SqlConnection.Open();
             accountBUS = new AccountBUS();
         }
 
