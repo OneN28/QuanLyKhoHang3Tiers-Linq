@@ -11,6 +11,10 @@ namespace Quản_lý_kho_hàng.EL
     [Table(Name ="Hanghoa")]
     class HangHoa
     {
+        public HangHoa()
+        {
+
+        }
         public HangHoa(string maHang, string tenHang, string noiChua, double giaHang, int soLuongHang)
         {
             MaHang = maHang;

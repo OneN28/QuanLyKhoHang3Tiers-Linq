@@ -85,5 +85,33 @@ namespace Quản_lý_kho_hàng.PL
                 }
             }
         }
+
+        private void btShowAll_Click(object sender, EventArgs e)
+        {
+            GetAllToGridView();
+        }
+
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+
+            List<EL.HangHoa> listHangHoa = hangHoaBUS.ViewAll();
+            dataTable.Rows.Clear();
+            
+
+
+            if (tbMaHang.Text != "")
+            {
+                listHangHoa = listHangHoa.Where((hang) => hang.MaHang.Contains(tbMaHang.Text)).ToList();
+            }
+            if (tbTenHang.Text != "")
+            {
+                listHangHoa = listHangHoa.Where((hang) => hang.TenHang.Contains(tbTenHang.Text)).ToList();
+            }
+            foreach (EL.HangHoa hanghoa in listHangHoa)
+            {
+                dataTable.Rows.Add(hanghoa.MaHang, hanghoa.TenHang, hanghoa.NoiChua, hanghoa.SoLuongHang, hanghoa.GiaHang);
+            }
+            dataGridView1.DataSource = dataTable;
+        }
     }
 }
