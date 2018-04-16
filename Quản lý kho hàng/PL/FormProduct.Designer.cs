@@ -43,6 +43,7 @@
             this.tbMaHang = new System.Windows.Forms.TextBox();
             this.btUpdate = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
+            this.btShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -71,6 +72,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.btShowAll);
             this.splitContainer1.Panel1.Controls.Add(this.tbSLHang);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.tbGiaHang);
@@ -159,7 +161,7 @@
             // btDelete
             // 
             this.btDelete.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.btDelete.Location = new System.Drawing.Point(550, 86);
+            this.btDelete.Location = new System.Drawing.Point(550, 113);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(75, 23);
             this.btDelete.TabIndex = 4;
@@ -186,7 +188,7 @@
             // btUpdate
             // 
             this.btUpdate.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.btUpdate.Location = new System.Drawing.Point(550, 57);
+            this.btUpdate.Location = new System.Drawing.Point(550, 84);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(75, 23);
             this.btUpdate.TabIndex = 1;
@@ -199,13 +201,23 @@
             this.btAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btAdd.ImageKey = "(none)";
-            this.btAdd.Location = new System.Drawing.Point(550, 28);
+            this.btAdd.Location = new System.Drawing.Point(550, 55);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(75, 23);
             this.btAdd.TabIndex = 0;
             this.btAdd.Text = "Add";
             this.btAdd.UseVisualStyleBackColor = false;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // btShowAll
+            // 
+            this.btShowAll.Location = new System.Drawing.Point(550, 26);
+            this.btShowAll.Name = "btShowAll";
+            this.btShowAll.Size = new System.Drawing.Size(75, 23);
+            this.btShowAll.TabIndex = 13;
+            this.btShowAll.Text = "Show All";
+            this.btShowAll.UseVisualStyleBackColor = true;
+            this.btShowAll.Click += new System.EventHandler(this.btShowAll_Click);
             // 
             // FormProduct
             // 
@@ -244,5 +256,6 @@
         private System.Windows.Forms.TextBox tbMaHang;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btShowAll;
     }
 }

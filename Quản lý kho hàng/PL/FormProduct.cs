@@ -44,13 +44,13 @@ namespace Quản_lý_kho_hàng.PL
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            hangHoaBUS.Insert(new EL.HangHoa(tbMaHang.Text, tbTenHang.Text, tbNoiChua.Text, double.Parse(tbGiaHang.Text), int.Parse(tbSLHang.Text)));
+            hangHoaBUS.Insert(new EL.HangHoa(tbMaHang.Text, tbTenHang.Text, tbNoiChua.Text, tbGiaHang.Text, tbSLHang.Text));
             GetAllToGridView();
         }
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
-            hangHoaBUS.Update(dataTable.Rows[currentRow].Field<string>(0), new EL.HangHoa(tbMaHang.Text, tbTenHang.Text, tbNoiChua.Text, double.Parse(tbGiaHang.Text), int.Parse(tbSLHang.Text)));
+            hangHoaBUS.Update(currentRow, new EL.HangHoa(tbMaHang.Text, tbTenHang.Text, tbNoiChua.Text, tbGiaHang.Text, tbSLHang.Text));
             GetAllToGridView();
         }
 
@@ -84,6 +84,11 @@ namespace Quản_lý_kho_hàng.PL
                     tbSLHang.Text = dataTable.Rows[e.RowIndex].Field<string>(4);
                 }
             }
+        }
+
+        private void btShowAll_Click(object sender, EventArgs e)
+        {
+            GetAllToGridView();
         }
     }
 }

@@ -11,7 +11,11 @@ namespace Quản_lý_kho_hàng.EL
     [Table(Name ="Hanghoa")]
     class HangHoa
     {
-        public HangHoa(string maHang, string tenHang, string noiChua, double giaHang, int soLuongHang)
+        public HangHoa()
+        {
+
+        }
+        public HangHoa(string maHang, string tenHang, string noiChua, string giaHang, string soLuongHang)
         {
             MaHang = maHang;
             TenHang = tenHang;
@@ -26,8 +30,8 @@ namespace Quản_lý_kho_hàng.EL
         [Column(Name ="NoiChua")]
         public string NoiChua { get; set; }
         [Column(Name ="GiaHang")]
-        public double GiaHang { get; set; }
+        public string GiaHang { get; set; }
         [Column(Name ="SoLuongHang")]
-        public int SoLuongHang { get; set; }
+        public string SoLuongHang { get; set; }
     }
 }

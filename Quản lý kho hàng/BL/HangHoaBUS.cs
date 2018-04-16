@@ -21,9 +21,9 @@ namespace Quản_lý_kho_hàng.BL
             return hangHoaDAO.Insert(hangHoa);
         }
 
-        public bool Update(string maHangOld, HangHoa hangHoa)
+        public bool Update(int index, HangHoa hangHoa)
         {
-            return hangHoaDAO.Update(maHangOld, hangHoa);
+            return hangHoaDAO.Update(index, hangHoa);
         }
         public bool Delete(string maHang)
         {

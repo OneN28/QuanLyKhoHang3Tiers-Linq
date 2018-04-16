@@ -45,14 +45,16 @@ namespace Quản_lý_kho_hàng.DAL
             }
             catch { return false; }
         }
-        public bool Update(string maHangOld, HangHoa hangHoa)
+        public bool Update(int index, HangHoa updateHangHoa)
         {
             Table<HangHoa> tbHangHoa = ConfigureManager.Database.GetTable<HangHoa>();
-            var update = from hanghoa in tbHangHoa where hangHoa.MaHang == maHangOld select hanghoa;
-            for(int i = 0; i < update.ToList().Count; i++)
-            {
-                update.ToList()[i] = hangHoa;
-            }
+            HangHoa hang = tbHangHoa.ToList<HangHoa>()[index];
+            hang.MaHang = updateHangHoa.MaHang;
+            hang.TenHang = updateHangHoa.TenHang;
+            hang.GiaHang = updateHangHoa.SoLuongHang;
+            hang.NoiChua = updateHangHoa.NoiChua;
+            hang.SoLuongHang = updateHangHoa.GiaHang;
+           
             try
             {
                 ConfigureManager.Database.SubmitChanges();
