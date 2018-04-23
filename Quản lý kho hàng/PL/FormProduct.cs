@@ -90,5 +90,16 @@ namespace Quản_lý_kho_hàng.PL
         {
             GetAllToGridView();
         }
+
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+            List<EL.HangHoa> listHangHoa = hangHoaBUS.Search(new EL.HangHoa(tbMaHang.Text, tbTenHang.Text, tbNoiChua.Text, tbSLHang.Text, tbGiaHang.Text));
+            dataTable.Rows.Clear();
+            foreach (EL.HangHoa hanghoa in listHangHoa)
+            {
+                dataTable.Rows.Add(hanghoa.MaHang, hanghoa.TenHang, hanghoa.NoiChua, hanghoa.SoLuongHang, hanghoa.GiaHang);
+            }
+            dataGridView1.DataSource = dataTable;
+        }
     }
 }

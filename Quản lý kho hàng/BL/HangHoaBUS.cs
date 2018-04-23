@@ -33,5 +33,31 @@ namespace Quản_lý_kho_hàng.BL
         {
             return hangHoaDAO.SelectAll();
         }
+        public List<HangHoa> Search(HangHoa hangHoa)
+        {
+            List<HangHoa> result = ViewAll();
+            if (hangHoa.MaHang != "")
+            {
+                result = result.Where((hang) => hang.MaHang == hangHoa.MaHang).ToList<HangHoa>();
+            }
+            if(hangHoa.TenHang != "")
+            {
+                result = result.Where((hang) => hang.TenHang == hangHoa.TenHang).ToList<HangHoa>();
+            }
+            if (hangHoa.NoiChua != "")
+            {
+                result = result.Where((hang) => hang.NoiChua == hangHoa.NoiChua).ToList<HangHoa>();
+            }
+            if (hangHoa.GiaHang != "")
+            {
+                result = result.Where((hang) => hang.GiaHang == hangHoa.GiaHang).ToList<HangHoa>();
+            }
+            if (hangHoa.SoLuongHang != "")
+            {
+                result = result.Where((hang) => hang.SoLuongHang == hangHoa.SoLuongHang).ToList<HangHoa>();
+            }
+
+            return result;
+        }
     }
 }
