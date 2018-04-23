@@ -38,23 +38,23 @@ namespace Quản_lý_kho_hàng.BL
             List<HangHoa> result = ViewAll();
             if (hangHoa.MaHang != "")
             {
-                result = result.Where((hang) => hang.MaHang == hangHoa.MaHang).ToList<HangHoa>();
+                result = result.Where((hang) => hang.MaHang.Trim() == hangHoa.MaHang).ToList<HangHoa>();
             }
             if(hangHoa.TenHang != "")
             {
-                result = result.Where((hang) => hang.TenHang == hangHoa.TenHang).ToList<HangHoa>();
+                result = result.Where((hang) => hang.TenHang.Trim() == hangHoa.TenHang).ToList<HangHoa>();
             }
             if (hangHoa.NoiChua != "")
             {
-                result = result.Where((hang) => hang.NoiChua == hangHoa.NoiChua).ToList<HangHoa>();
+                result = result.Where((hang) => hang.NoiChua.Trim() == hangHoa.NoiChua).ToList<HangHoa>();
             }
             if (hangHoa.GiaHang != "")
             {
-                result = result.Where((hang) => hang.GiaHang == hangHoa.GiaHang).ToList<HangHoa>();
+                result = result.Where((hang) => hang.GiaHang.Trim() == hangHoa.GiaHang).ToList<HangHoa>();
             }
             if (hangHoa.SoLuongHang != "")
             {
-                result = result.Where((hang) => hang.SoLuongHang == hangHoa.SoLuongHang).ToList<HangHoa>();
+                result = result.Where((hang) => hang.SoLuongHang.Trim() == hangHoa.SoLuongHang).ToList<HangHoa>();
             }
 
             return result;
